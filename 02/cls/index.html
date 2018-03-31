@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Js Base Course - Занятие 1</title>
+  <title>Js Base Course - Занятие 2</title>
   <link rel="stylesheet" href="https://rawgit.com/mikemiles86/reveal-line-numbers/master/line-numbers.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/vs.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.css">
@@ -17,11 +17,14 @@
         <h1>Вопросы?</h1>
       </section>
       <section>
-        <h1><a href="https://rawgit.com/vvscode/js--base-course/master/questions/index.html" target="_blank">Вопросы!</a></h1>
-      </section>
-      <section>
-        <h1>Занятие 1</h1>
-        <p style="font-size: bigger;">http://bit.ly/vvsjs02</p>
+        <section>
+          <h1>Занятие 2</h1>
+        </section>
+        <section>
+          <h1>
+            <a href="https://rawgit.com/vvscode/js--base-course/master/questions/index.html" target="_blank">Вопросы!</a>
+          </h1>
+        </section>
       </section>
       <section>
         <h4>Передача по значению / по ссылке</h4>
@@ -30,8 +33,6 @@
           <li class="fragment">Что такое переменная?</li>
           <li class="fragment">Передача по ссылке</li>
           <li class="fragment">Передача по значению</li>
-          <li class="fragment">Константы</li>
-          <li class="fragment">Изменение значений примитивных типов</li>
         </ul>
       </section>
       <section>
@@ -40,7 +41,9 @@
           <li class="fragment">"Говорящее название"</li>
           <li class="fragment">Переменная - существительное / функция - глагол</li>
           <li class="fragment">camelCase / CamelCase / CAMEL_CASE / _x</li>
-          <li class="fragment">Венгерская нотация<sup>*</sup></li>
+          <li class="fragment">Венгерская нотация
+            <sup>*</sup>
+          </li>
           <li class="fragment">myButton</li>
         </ul>
       </section>
@@ -101,10 +104,25 @@ o[propName] = 4;
         <h1>Вопросы?</h1>
       </section>
       <section>
+        <pre class="fragment"><code data-trim class="javascript line-numbers">
+var o = {
+  x: 1
+};
+console.log(o.x); // ?
+var a = 'x';
+o.a = 2;
+console.log(o.x); // ?
+var b = 'x';
+o['b'] = 3;
+console.log(o.x); // ?
+                        </code></pre>
+      </section>
+      <section>
         <section>
           <h5>Принципы ООП</h5>
           <ul>
-            <li class="fragment"><strong>Абстракция</strong> - позволяет оперировать аналогами объектов из реального мира</li>
+            <li class="fragment">
+              <strong>Абстракция</strong> - позволяет оперировать аналогами объектов из реального мира</li>
             <li class="fragment">Инкапсуляция - позволяет не думать о реализации</li>
             <li class="fragment">Наследование - позволяет уменьшить дублирование кода</li>
             <li class="fragment">Полиморфизм</li>
@@ -144,7 +162,9 @@ console.log(o.toString); // ?
         </section>
       </section>
       <section>
-        <h6><code>__proto__</code></h6>
+        <h6>
+          <code>__proto__</code>
+        </h6>
         <section>
           <pre><code data-trim class="javascript line-numbers">
 var o = {
@@ -292,10 +312,18 @@ console.log(o.prop1); // ?
       <section>
         <h5>Задание прототипа</h5>
         <ul>
-          <li class="fragment"><code>__proto__</code></li>
-          <li class="fragment"><code>Object.setPrototypeOf(obj, prototype);</code></li>
-          <li class="fragment"><code>Object.create(proto[, propertiesObject])</code></li>
-          <li class="fragment"><code>...</code></li>
+          <li class="fragment">
+            <code>__proto__</code>
+          </li>
+          <li class="fragment">
+            <code>Object.setPrototypeOf(obj, prototype);</code>
+          </li>
+          <li class="fragment">
+            <code>Object.create(proto[, propertiesObject])</code>
+          </li>
+          <li class="fragment">
+            <code>...</code>
+          </li>
         </ul>
       </section>
       <section>
@@ -308,7 +336,9 @@ console.log(o.prop1); // ?
           <li class="fragment">Имя функции</li>
           <li class="fragment">Число и тип параметров (аргументов)</li>
           <li class="fragment">Тип возвращаемого значения</li>
-          <li class="fragment">Контекст<sup>*</sup></li>
+          <li class="fragment">Контекст
+            <sup>*</sup>
+          </li>
         </ul>
       </section>
       <section>
@@ -375,9 +405,10 @@ greet2("Саня"); // ?
         <h6>Функции высшего порядка</h6>
         <p>Принимают параметром и/или возвращают функции как результат работы</p>
         <pre class="fragment"><code data-trim class="javascript line-numbers">
-document.findElementById('btn').addEventListener('click', function() {
-  alert('*Opa')!
-});
+document.findElementById('btn')
+  .addEventListener('click', function() {
+    alert('*Opa')!
+  });
           </code></pre>
       </section>
       <section>
@@ -449,7 +480,9 @@ console.log(counter.current()); // ?
         <h1>Вопросы?</h1>
       </section>
       <section>
-        <h6>Контекст / <code>this</code></h6>
+        <h6>Контекст /
+          <code>this</code>
+        </h6>
         <section>
           Определяет кто/где выполняет функцию
         </section>
@@ -473,15 +506,16 @@ o.someStrangeFunctionInObject();
           </code></pre>
         </section>
         <section>
-          <p><code>this</code> позволяет задавать/изменять окружение исполнения функции</p>
+          <p>
+            <code>this</code> позволяет задавать/изменять окружение исполнения функции</p>
         </section>
         <section>
           <pre><code data-trim class="javascript line-numbers">
-function ssF() { console.log('this for someStrangeFunction', this); }
+function someStrangeFunction() { console.log('this for someStrangeFunction', this); }
 var o = { prop1: 1 };
 someStrangeFunction(); // ?
-o.ssf = ssF;
-o.ssf(); // ?
+o.someStrangeFunction = someStrangeFunction;
+o.someStrangeFunction(); // ?
           </code></pre> </section>
         <section>
           <pre><code data-trim class="javascript line-numbers">
@@ -497,7 +531,9 @@ ssm();
           </code></pre>
         </section>
         <section>
-          <h5>Три возможных значения <code>this</code></h5>
+          <h5>Три возможных значения
+            <code>this</code>
+          </h5>
           <ul>
             <li class="fragment">window</li>
             <li class="fragment">undefined</li>
@@ -515,6 +551,10 @@ var o = {
 }
 document.body.addEventListener('click', o.greet);
           </code></pre>
+          <pre class="fragment"><code data-trim class="javascript line-numbers">
+var x = o.greet;
+document.body.addEventListener('click', x); // x()
+</code></pre>
         </section>
         <section>
           <h5>Изменение контекста функции</h5>
@@ -538,7 +578,9 @@ of();
           </code></pre>
         </section>
         <section>
-          <h5><code>call/apply/bind</code></h5>
+          <h5>
+            <code>call/apply/bind</code>
+          </h5>
           <pre><code data-trim class="javascript line-numbers">
 var o = { prop1: 1, name: 'Sam' }; 
 var f = function(name) { console.log(this, name); };
@@ -553,7 +595,9 @@ f.bind(o)('user 4'); // bind возвращает функцию для вызо
       <section>
         <h6>new</h6>
         <section>
-          <h6>Еще один способ изменить <span class="fragment">this</span></h6>
+          <h6>Еще один способ изменить
+            <code>this</code>
+          </h6>
           <pre><code data-trim class="javascript line-numbers">
 var f = function(name) { console.log(this); };
 f('Sam'); // ?
@@ -562,11 +606,19 @@ console.log(new f('Bob')); // ?
         </section>
         <section>
           <ul>
-            <li class="fragment"><code>new</code> с любой функцией создает новый объект</li>
-            <li class="fragment">Новый объект становится возвращаемым значением <strong>по-умолчанию</strong></li>
-            <li class="fragment">Новый объект получает значение в <code>__proto__</code></li>
-            <li class="fragment">туда записывается <code>f.prototype</code></li>
-            <li class="fragment">Функции предназначенные для вызова с <code>new</code> - конструкторы </li>
+            <li class="fragment">
+              <code>new</code> с любой функцией создает новый объект</li>
+            <li class="fragment">Новый объект получает значение в
+              <code>__proto__</code>
+            </li>
+            <li class="fragment">туда записывается
+              <code>f.prototype</code>
+            </li>
+            <li class="fragment">Новый объект становится возвращаемым значением
+              <strong>по-умолчанию</strong>
+            </li>
+            <li class="fragment">Функции предназначенные для вызова с
+              <code>new</code> - конструкторы </li>
             <li class="fragment">Конструкторы именуются с большой буквы</li>
           </ul>
         </section>
@@ -636,7 +688,8 @@ console.log(u, fu instanceof User);
           </code></pre>
         </section>
         <section>
-          <h6><code>instanceof</code> ходит по цепочке прототипов</h6>
+          <h6>
+            <code>instanceof</code> ходит по цепочке прототипов</h6>
           <pre class="fragment"><code data-trim class="javascript line-numbers">
 x instanceof Y 
 -> x.__proto__ === Y.prototype 

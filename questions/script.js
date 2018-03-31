@@ -1,4 +1,43 @@
-const questions = `
+/* eslint max-len: ["warn", { "ignoreStrings": true }]*/
+
+const questions0 = `Что такое git?
+Какие есть системы контроля версий?
+как создать ветку в git?
+что такое HTML?
+что такое CSS?
+как зовут создателя JavaScript?
+в каком году был создан JavasScript?
+Какая текущая версия Javacript?
+Какая прошлая версия Javascript?
+Какого номера версии Javascript не было?
+Как называется комитет, занимающийся развитием JavaScript?
+Для чего нужен файл .gitignore?
+Как добавить в git пустую папку?
+Что такое "линтер"?
+Для чего нужен "prettier"?
+Как открыть DevTools в браузере?
+Как можно добавить javascript на страницу?
+Сколько будет 0.2 + 0.1?
+Что такое breakpoint?
+Какие методы есть у объекта console?
+На странице два элемента с id="awesomeId". Как из javascript найти второй?
+Что такое falsy (ложное) значение? Сколько их?
+Назовите 4 javascript фреймворка
+Назовите 3 javascript библиотеки
+Что такое cookies?
+Что происходит между вводом в адресной строке адреса страницы и появлением страницы на экране?
+Зачем нужен DNS сервер?
+Что такое HTTP?
+Назовите 3 программы-веб сервера
+Назовите 5 программ-браузеров
+Полное название Javascript?
+Что такое "транспиляция" в контексте разработки на Javascript?
+Как в Slack оформить многострочный код?
+Как в Slack оформить однострочный код?
+Что такое "императивное программирование"?
+Что такое ООП?`;
+
+const questions1 = `
 Что такое переменная?
 как объявить переменную? как инициализировать переменную?
 виды циклов ( 3 вида ) ?
@@ -35,7 +74,6 @@ const questions = `
 Почему 1 + '2' ? и 1 - '2' ?
 Как и когда работает преобразование типов?
 Что такое HTTP ? 
-Из чего состоит HTTP протокол?
 Какие есть методы HTTP запросов? Для чего каждый?
 Что такое REST ? RPC ?
 Что такое "линтер" (linter) ? Зачем они нужны? Какие линтеры есть для javascript?
@@ -43,9 +81,9 @@ const questions = `
 Что такое пакетный менеджер? 
 Какие пакетные менеджеры есть для js?
 Что делают системы сборки? 
-Какие системы сборки есть для js?
+Какие системы сборки есть для js?`;
 
-Как изменить "this" внутри функции? (5 способов)
+const questions2 = `Как изменить "this" внутри функции? (5 способов)
 чем различаются ".call" / ".apply" / ".bind"
 Что такое контекст вызова функции? Чем определяется?
 Что такое сигнатура функции?
@@ -66,12 +104,57 @@ const questions = `
 что такое синхронный / асинхронный код?
 что такое "каррирование" ?
 в чем разница объявления методов в конструкторе и на .prototype" ?
-что такое 'полифилл'?
-`
-  .trim()
-  .split('\n')
-  .map((i) => i.trim())
-  .filter(Boolean);
+что такое 'полифилл'?`;
+
+const questions3 = `Что такое "стрелочная" ("arrow function") функция? Чем она отличается от обычной?
+Что такое Promise? Какой стандарт отписывает поведение Promise? Основные пункты стандарта?
+Чем куки (cookie) отличаются от localStorage ?
+Что такое CORS?
+Что такое и какие есть коды ответов HTTP?
+Что такое jsonp-запрос?
+Как код, написанный на ES6 (ES2015-2017) превратить в код, который поддерживается IE10?
+Как реализовать простейший модуль на js?
+Что такое и зачем нужен паттерн модуль? Какие модули существуют в JS?
+Как реализовать подписку на клик по кнопке, которая отработает только один раз? ( с примером кода )
+Какие события не "всплывают" ?
+Что такое делегирование?
+Преимущества и особенности работы с делегированием?
+Какие вспомогательные методы есть для работы с промисами?
+в чем разница между следующими кусками кода?<br /><pre>promise.then(onSuccess, onError);</pre><br />promise.then(onSuccess).catch(onError);
+в чем разница между следующими кусками кода?<br><pre>doSomething().then(function () { return doSomethingElse(); });</pre><br /><pre>doSomething().then(function () { doSomethingElse(); });</pre><br /><pre>doSomething().then(doSomethingElse());</pre><br /><pre>doSomething().then(doSomethingElse);</pre>
+`;
+
+const questions4 = `
+SOLID
+KISS
+DRY
+YAGNI
+MVC
+Паттерны проектирования ( Что это? Какие есть группы? )
+Антипаттерны проектирования
+Модульные системы (CommonJS/ ES6 modules/ AMD)
+requirejs
+`;
+
+const questions5 = `
+что такое stage0 ... stage1 ?
+чем "стрелочная" функция отличается от обычной?
+чем отличаются let / const / var ?
+что такое spread оператор?
+что такое rest параметр?
+что такое деструктуризация ?
+что такое super ?
+как сделать наследование классов?
+что такое генератор ?
+что такое Set и Map ?
+зачем нужен Symbol ?
+чем классы отличаются от работы с прототипами?
+что такое итератор?
+какие дополнения в объявлении объектов?
+как работать с ES6-imports ?
+this в стрелочной функции?
+как проверить поддерживается ли функция из ES6 каким-то браузером?
+`;
 
 const shuffleList = (list) => {
   for (let i = 0; i < list.length; i++) {
@@ -84,17 +167,54 @@ const shuffleList = (list) => {
 };
 
 const $$ = document.querySelector.bind(document);
-
-const roundQuestions = shuffleList([...questions]);
-
+let questionsStrings = [
+  questions0,
+  questions1,
+  questions2,
+  questions3,
+  questions4,
+  questions5,
+];
+let roundQuestionsNumber = 0;
 let i = 0;
+
+let getQuestions = (() => {
+  let questions = [];
+  let generateQuestions = () => {
+    [...document.querySelectorAll('fieldset input[type=checkbox]')].forEach(
+      (el, index) => {
+        if (el.checked) {
+          questions = [
+            ...questions,
+            ...(questionsStrings[index] || '').trim().split('\n'),
+          ];
+        }
+      }
+    );
+
+    questions = questions.map((i) => i.trim()).filter(Boolean);
+
+    shuffleList(questions);
+    shuffleList(questions);
+    roundQuestionsNumber = questions.length;
+    i = 0;
+  };
+
+  return () => {
+    if (!questions.length) {
+      generateQuestions();
+    }
+    return questions;
+  };
+})();
+
 const drawNextQuestion = () => {
-  if (!roundQuestions.length) {
-    return;
-  }
+  let questions = getQuestions();
   i++;
-  let question = roundQuestions.pop();
-  $$('.question').innerHTML = `<sup>${i}</sup>/<sub>${questions.length}</sub> > ${question}`;
+  let question = questions.pop();
+  $$(
+    '.question'
+  ).innerHTML = `<sup>${i}</sup>/<sub>${roundQuestionsNumber}</sub> > ${question}`;
 };
 
 $$('.question').addEventListener('click', drawNextQuestion);
